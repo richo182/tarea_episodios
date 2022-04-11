@@ -1,6 +1,8 @@
 import 'package:curso2/Models/movie_model.dart';
 import 'package:flutter/material.dart';
 
+import '../Screens/episodes.dart';
+
 class ItemMovie extends StatefulWidget {
   final MovieModel movieModel;
   const ItemMovie({Key? key, required this.movieModel}) : super(key: key);
@@ -18,7 +20,7 @@ class _ItemMovieState extends State<ItemMovie> {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => LoginScreen ()
+                builder: (context) => const EpisodesFromSeries ()
             )
         );
       },

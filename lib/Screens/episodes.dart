@@ -15,7 +15,7 @@ class _EpisodesFromSeriesState extends State<EpisodesFromSeries> {
   List<EpisodesModel> episodesList = [];
 
   getMovies() async{
-    episodesList = await HttpServices().getMovieInfo(id);
+    episodesList = await HttpServices().getMovieInfo();
     setState(() {});
   }
 
@@ -37,9 +37,9 @@ class _EpisodesFromSeriesState extends State<EpisodesFromSeries> {
       context: context,
       removeTop: true,
       child: ListView.builder(
-        itemCount: movieList.length, //150
+        itemCount: episodesList.length, //150
         scrollDirection: Axis.vertical,
-        itemBuilder: (BuildContext context, int index) => ItemMovie(movieModel: movieList[index]),
+        itemBuilder: (BuildContext context, int index) => ItemMovie(episodesModel: episodesList[index]),
       ),
     );
   }

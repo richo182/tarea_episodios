@@ -23,9 +23,9 @@ class HttpServices{
     return movieList;
   }
 
-  Future<List<EpisodesModel>> getMovieInfo( int id) async{
+  Future<List<EpisodesModel>> getMovieInfo() async{
     List<EpisodesModel> episodesList = [];
-    var url = Uri.parse(REFERENCE_BASE_URL + REFERENCE_SHOW_ALL + "/" + id!  + REFERENCE_SHOW_EPISODES);
+    var url = Uri.parse(REFERENCE_BASE_URL + REFERENCE_SHOW_ALL + "/1"  + REFERENCE_SHOW_EPISODES);
     var response = await http.get(url);
     print('Response status: ${response.statusCode}');
     print('Response body: ${response.body}');

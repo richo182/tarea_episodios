@@ -4,7 +4,7 @@ import 'package:curso2/Models/movie_model.dart';
 import 'package:flutter/material.dart';
 
 class MoviesAndSeriesScreen extends StatefulWidget {
-  const MoviesAndSeriesScreen({Key? key, required this.id}) : super(key: key);
+  const MoviesAndSeriesScreen({Key? key}) : super(key: key);
 
   @override
   _MoviesAndSeriesScreenState createState() => _MoviesAndSeriesScreenState();
