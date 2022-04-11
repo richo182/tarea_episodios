@@ -1,21 +1,21 @@
 import 'package:curso2/HttpServices/http_services.dart';
 import 'package:curso2/Items/item_movie.dart';
+import 'package:curso2/Models/episode_model.dart';
 import 'package:curso2/Models/movie_model.dart';
 import 'package:flutter/material.dart';
 
-class MoviesAndSeriesScreen extends StatefulWidget {
-  const MoviesAndSeriesScreen({Key? key, required this.id}) : super(key: key);
+class EpisodesFromSeries extends StatefulWidget {
+  const EpisodesFromSeries({Key? key}) : super(key: key);
 
   @override
-  _MoviesAndSeriesScreenState createState() => _MoviesAndSeriesScreenState();
+  State<EpisodesFromSeries> createState() => _EpisodesFromSeriesState();
 }
 
-class _MoviesAndSeriesScreenState extends State<MoviesAndSeriesScreen> {
-
-  List<MovieModel> movieList = [];
+class _EpisodesFromSeriesState extends State<EpisodesFromSeries> {
+  List<EpisodesModel> episodesList = [];
 
   getMovies() async{
-    movieList = await HttpServices().getMovieList();
+    episodesList = await HttpServices().getMovieInfo(id);
     setState(() {});
   }
 

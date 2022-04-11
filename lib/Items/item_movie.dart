@@ -12,49 +12,60 @@ class ItemMovie extends StatefulWidget {
 class _ItemMovieState extends State<ItemMovie> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 180.0,
-        child: Stack(
-          children: [
-            Image.network(
-                widget.movieModel.url,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.fitWidth,
-            ),
-            Container(
-              height: 180.0,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.black54,
-            ),
-            Positioned(
-              bottom: 0.0,
-              left: 0.0,
-              right: 0.0,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                        widget.movieModel.name,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0
-                      ),
-                    ),
-                    Text(
-                      widget.movieModel.language,
-                      style: TextStyle(
-                          color: Colors.white
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+    return GestureDetector(
+      onTap: (){
+        print("Container clicked");
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => LoginScreen ()
             )
-          ],
-        ),
+        );
+      },
+      child: Container(
+        height: 180.0,
+          child: Stack(
+            children: [
+              Image.network(
+                  widget.movieModel.url,
+                width: MediaQuery.of(context).size.width,
+                fit: BoxFit.fitWidth,
+              ),
+              Container(
+                height: 180.0,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.black54,
+              ),
+              Positioned(
+                bottom: 0.0,
+                left: 0.0,
+                right: 0.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                          widget.movieModel.name,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0
+                        ),
+                      ),
+                      Text(
+                        widget.movieModel.language,
+                        style: TextStyle(
+                            color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+      ),
     );
   }
 }
