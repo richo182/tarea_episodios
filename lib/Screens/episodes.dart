@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import '../Items/item_episodes.dart';
 
 class EpisodesFromSeries extends StatefulWidget {
-  const EpisodesFromSeries({Key? key}) : super(key: key);
+  final MovieModel movieModel;
+  const EpisodesFromSeries({Key? key, required this.movieModel }) : super(key: key);
 
   @override
   State<EpisodesFromSeries> createState() => _EpisodesFromSeriesState();
@@ -17,7 +18,7 @@ class _EpisodesFromSeriesState extends State<EpisodesFromSeries> {
   List<EpisodesModel> episodesList = [];
 
   getMovies() async{
-    episodesList = await HttpServices().getMovieInfo();
+    episodesList = await HttpServices().getMovieInfo(widget.movieModel.id.toString());
     setState(() {});
   }
 

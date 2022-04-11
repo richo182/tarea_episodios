@@ -19,7 +19,7 @@ class _ItemMovieState extends State<ItemMovie> {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => const EpisodesFromSeries ()
+                builder: (context) =>  EpisodesFromSeries ( movieModel: widget.movieModel)
             )
         );
       },
