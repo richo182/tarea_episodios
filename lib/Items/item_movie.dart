@@ -16,7 +16,6 @@ class _ItemMovieState extends State<ItemMovie> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        print("Container clicked");
         Navigator.push(
             context,
             MaterialPageRoute(

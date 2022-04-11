@@ -4,6 +4,8 @@ import 'package:curso2/Models/episode_model.dart';
 import 'package:curso2/Models/movie_model.dart';
 import 'package:flutter/material.dart';
 
+import '../Items/item_episodes.dart';
+
 class EpisodesFromSeries extends StatefulWidget {
   const EpisodesFromSeries({Key? key}) : super(key: key);
 
@@ -16,7 +18,6 @@ class _EpisodesFromSeriesState extends State<EpisodesFromSeries> {
 
   getMovies() async{
     episodesList = await HttpServices().getMovieInfo();
-    print(episodesList);
     setState(() {});
   }
 
@@ -29,29 +30,19 @@ class _EpisodesFromSeriesState extends State<EpisodesFromSeries> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 10.0),
-            // const Center(
-            //   child: ListView.builder(
-            //       padding: const EdgeInsets.all(8),
-            //       itemCount: episodesList.length,
-            //       itemBuilder: (BuildContext context, int index) {
-            //         return Text( episodesList[index]);
-            //       }
-            //   ),
-            // ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.4,
-            ),
-          ],
-        ),
-      ),
+      body: _list(),
     );
   }
 
-
+  Widget _list(){
+    return MediaQuery.removePadding(
+      context: context,
+      removeTop: true,
+      child: ListView.builder(
+        itemCount: episodesList.length, //150
+        scrollDirection: Axis.vertical,
+        itemBuilder: (BuildContext context, int index) => ItemEpisode(episodesModel: episodesList[index]),
+      ),
+    );
+  }
 }
